@@ -1,0 +1,89 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <h1 class="nhsuk-heading-xl">
+        What type of NHS Pension Scheme member are you?
+      </h1>
+
+      <p>How you change your address with the NHS Pension Scheme depends on what type of member you are.</p>
+      <p>I am:</p>
+
+      <form method="post" action="/v1/member-type">
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset" aria-describedby="example-hints-hint">
+          <div class="nhsuk-radios" data-module="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-hints" name="memberType" type="radio" value="active">
+              <label class="nhsuk-label nhsuk-radios__label" for="example-hints">
+                currently paying into the scheme (an active member)
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-hints-2" name="memberType" type="radio" value="deferred">
+              <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+                no longer paying into the scheme but not getting my pension payments (a deferred member)
+              </label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="example-hints-3" name="memberType" type="radio" value="pensioner">
+              <label class="nhsuk-label nhsuk-radios__label" for="example-hints-3">
+                already getting my pension payments (a pensioner member)
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+     
+      
+
+      <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+        Continue
+      </button>
+    </form>
+      
+      
+
+
+      
+
+      
+
+      
+
+     
+
+    </div>
+  </div>
+{% endblock %}

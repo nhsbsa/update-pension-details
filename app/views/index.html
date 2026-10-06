@@ -1,0 +1,93 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <h1 class="nhsuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p>This is the prototype for the Update your address service. </p>
+
+      <p>
+        This is the index page where you can find all versions of the prototype.
+      </p>
+
+      <hr>
+
+      <table class="nhsuk-table nhsuk-table--responsive" role="table">
+        <caption class="nhsuk-table__caption">
+          Prototype versions
+        </caption>
+        <thead class="nhsuk-table__head" role="rowgroup">
+          <tr class="nhsuk-table__row" role="row">
+            <th class="nhsuk-table__header nhsuk-u-width-one-third" scope="col" role="columnheader">
+              Version
+            </th>
+            <th class="nhsuk-table__header nhsuk-u-width-one-quarter" scope="col" role="columnheader">
+             Status
+            </th>
+            <th class="nhsuk-table__header" scope="col" role="columnheader">
+              Additional notes
+            </th>
+            <th class="nhsuk-table__header" scope="col" role="columnheader">
+              Link
+            </th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          <tr class="nhsuk-table__row" role="row">
+            <th class="nhsuk-table__header" scope="row" role="rowheader">
+              <span class="nhsuk-table__heading" aria-hidden="true">Number </span><span>1.0</span>
+            </th>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table__heading" aria-hidden="true">Status </span><strong class="nhsuk-tag nhsuk-tag--orange">
+                In progress
+              </strong>
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table__heading" aria-hidden="true">Miro </span>Refer to Miro board
+            </td>
+            <td class="nhsuk-table__cell" role="cell">
+              <span class="nhsuk-table__heading" aria-hidden="true">Link </span><a href="v1/start">Start</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+      
+
+    </div>
+  </div>
+{% endblock %}

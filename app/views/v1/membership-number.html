@@ -1,0 +1,118 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <div class="nhsuk-form-group">
+        <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+            <h1 class="nhsuk-fieldset__heading">
+              Do you know your NHS Pensions membership number?
+            </h1>
+          </legend>
+          <div class="nhsuk-hint" id="contact-hint">
+            This is an 8 digit number, which may start with 'SD'. You can find it on payslips, Annual Benefit Statements, Total Reward Statements, or any letters from us
+          </div>
+          <div class="nhsuk-radios" data-module="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+              <label class="nhsuk-label nhsuk-radios__label" for="contact">
+                Yes, I know my membership number
+              </label>
+            </div>
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="email">
+                  Membership number
+                </label>
+                <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
+              </div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+              <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+                No, I do not know my membership number
+              </label>
+            </div>
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="phone">
+                  Phone number
+                </label>
+                <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
+              </div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+              <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
+                I'm not sure
+              </label>
+            </div>
+            <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-3">
+              <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="mobile">
+                  Mobile phone number
+                </label>
+                <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      
+
+      
+
+      
+      
+
+      <form method="post" action="/v1/start">
+      <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+        Continue
+      </button>
+      </form>
+      
+      
+
+
+      
+
+      
+
+      
+
+     
+
+    </div>
+  </div>
+{% endblock %}

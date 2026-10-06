@@ -1,0 +1,79 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <h1 class="nhsuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+
+      <p>You can use this service if you need to change your address details that NHS Pensions have on record for you.</p>
+      <p>You'll be asked some questions to confirm your identity.</p>
+
+      <div class="nhsuk-inset-text">
+        <span class="nhsuk-u-visually-hidden">Information: </span>
+        <p>NHS Pensions may get in touch with you after you have submitted your query if further evidence is to be sent to us.</p>
+      </div>
+
+      <h2>Before you start</h2>
+      <p>You'll need to have your details to hand in order to complete the form.</p>
+      <p>You'll need to know:</p>
+      <ul>
+        <li>your NHS membership number or National Insurance number</li>
+        <li>name</li>
+        <li>date of birth</li>
+        <li>previous address details</li>
+        <li>phone number</li>
+        <li>email address</li>
+      </ul>
+
+      <form method="post" action="/v1/start">
+      <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+        Continue
+      </button>
+      </form>
+      
+      
+
+
+      
+
+      
+
+      
+
+     
+
+    </div>
+  </div>
+{% endblock %}
