@@ -1,0 +1,111 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          <h1 class="nhsuk-fieldset__heading">
+            What is your address?
+          </h1>
+        </legend>
+      
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="address-line-1">
+            Address line 1
+          </label>
+          <input class="nhsuk-input" id="address-line-1" name="addressLine1" type="text" autocomplete="address-line1">
+        </div>
+      
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="address-line-2">
+            Address line 2 (optional)
+          </label>
+          <input class="nhsuk-input" id="address-line-2" name="addressLine2" type="text" autocomplete="address-line2">
+        </div>
+      
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="address-town">
+            Town or city
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-town" name="addressTown" type="text" autocomplete="address-level2">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="address-town">
+            County, province or region (optional)
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-town" name="addressTown" type="text" autocomplete="address-level2">
+        </div>
+
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="address-town">
+            Country
+          </label>
+          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="address-town" name="addressTown" type="text" autocomplete="address-level2">
+        </div>
+      
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="address-postcode">
+            Postcode or zip code (optional)
+          </label>
+          <input class="nhsuk-input nhsuk-input--width-10" id="address-postcode" name="addressPostcode" type="text" spellcheck="false" autocomplete="postal-code">
+        </div>
+      
+      </fieldset>
+      
+
+
+      <form method="post" action="/v1/enter-your-phone-number">
+      <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+        Continue
+      </button>
+    </form>
+
+    <p><a href="enter-in-your-address-uk">My address is in the UK</a></p>
+
+      
+      
+      
+
+
+      
+
+      
+
+      
+
+     
+
+    </div>
+  </div>
+{% endblock %}

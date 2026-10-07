@@ -32,12 +32,15 @@
       <!-- Add your content here -->
       <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
 
-      <h1 class="nhsuk-heading-xl">
-        What is your phone number?
-      </h1>
-      <p>This is the phone number we have on record for you. For international numbers include the country code, for example +34 for Spain</p>
-
       <div class="nhsuk-form-group">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          <h1 class="nhsuk-fieldset__heading">
+            What is your phone number?
+          </h1>
+        </legend>
+        <div class="nhsuk-hint" id="date-of-birth-hint">
+          This is the phone number we have on record for you. For international numbers include the country code, for example +34 for Spain
+        </div>
         <label class="nhsuk-label" for="input-width-20">
           Phone number
         </label>
@@ -45,7 +48,7 @@
       </div>
 
 
-      <form method="post" action="/v1/enter-national-insurance-number">
+      <form method="post" action="/v1/enter-your-phone-number">
       <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
         Continue
       </button>

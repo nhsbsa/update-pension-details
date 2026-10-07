@@ -77,4 +77,19 @@ router.post('/enter-national-insurance-number', (req, res) => {
     res.redirect('enter-your-name')
 });
 
+//What is your date of birth page
+router.post('/enter-date-of-birth', (req, res) => {
+    res.redirect('enter-your-email')
+});
+
+//What is your email address
+router.post('/enter-your-email', (req, res) => {
+    res.redirect('enter-your-phone-number')
+});
+
+//What is your phone number page
+router.post('/enter-your-phone-number', (req, res) => {
+    res.redirect('enter-your-old-postcode')
+});
+
 module.exports = router
