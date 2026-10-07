@@ -33,27 +33,33 @@
       <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
 
       <h1 class="nhsuk-heading-xl">
-        What is your name?
+        What is your email address?
       </h1>
+      <p class="nhsuk-hint">You must use an email address that is only used by you</p>
 
       <div class="nhsuk-form-group">
         <label class="nhsuk-label" for="input-width-20">
-          First name
+          Email address
         </label>
         <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="inputWidth20" type="text">
       </div>
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="input-width-20">
-          Last name
-        </label>
-        <input class="nhsuk-input nhsuk-input--width-20" id="input-width-20" name="inputWidth20" type="text">
-      </div>
-     
-     
+      <details class="nhsuk-details">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Why do we ask for your email address
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <p>We'll use this to send you confirmation that we've received
+            your query.</p>
+      
+        </div>
+      </details>
       
 
-      <form method="post" action="/v1/enter-your-name">
+
+      <form method="post" action="/v1/enter-your-email">
       <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
         Continue
       </button>

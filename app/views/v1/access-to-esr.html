@@ -32,16 +32,18 @@
       <!-- Add your content here -->
       <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
 
-      <h1 class="nhsuk-heading-xl">
-        Do you have access to ESR?
-      </h1>
-
-      <p>How you change your address with the NHS Pension Scheme depends on what type of member you are.</p>
-
 
       <form method="post" action="/v1/access-to-esr">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hints-hint">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+            <h1 class="nhsuk-fieldset__heading">
+              Can you access the Electronic Staff Record (ESR)? 
+            </h1>
+          </legend>
+          <div class="nhsuk-hint" id="example-hints-hint">
+            Whether you can access ESR affects how you would change your address
+          </div>
           <div class="nhsuk-radios" data-module="nhsuk-radios">
             <div class="nhsuk-radios__item">
               <input class="nhsuk-radios__input" id="accessYes" name="esrAccess" type="radio" value="yes">

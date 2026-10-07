@@ -32,16 +32,17 @@
       <!-- Add your content here -->
       <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
 
-      <h1 class="nhsuk-heading-xl">
-        Are you a dental practitioner?
-      </h1>
-
-      <p>If you're a dental practitioner there's a different way to change your address.</p>
-
-
       <form method="post" action="/v1/are-you-a-dental-practitioner">
       <div class="nhsuk-form-group">
         <fieldset class="nhsuk-fieldset" aria-describedby="example-hints-hint">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+            <h1 class="nhsuk-fieldset__heading">
+              Are you a dental practitioner?
+            </h1>
+          </legend>
+          <div class="nhsuk-hint" id="example-hints-hint">
+            If you're a dental practitioner you may be able to change your address at the Compass online  portal
+          </div>
           <div class="nhsuk-radios" data-module="nhsuk-radios">
             <div class="nhsuk-radios__item">
               <input class="nhsuk-radios__input" id="accessYes" name="dental" type="radio" value="yes">

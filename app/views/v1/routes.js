@@ -54,4 +54,27 @@ router.post('/are-you-a-dental-practitioner', (req, res) => {
     }
     });
 
+     // Do you know your membership number page
+router.post('/membership-number', (req, res) => {
+    const selection = req.session.data['membership-number-known'];
+
+    if (selection === 'yes') {
+        // Redirect to name page
+        res.redirect('enter-your-name');
+    } else {
+        // Redirect to national insurance number page
+        res.redirect('enter-national-insurance-number');
+    }
+});
+
+//What is your name page
+router.post('/enter-your-name', (req, res) => {
+    res.redirect('enter-date-of-birth')
+});
+
+//What is your national insurance number page
+router.post('/enter-national-insurance-number', (req, res) => {
+    res.redirect('enter-your-name')
+});
+
 module.exports = router
