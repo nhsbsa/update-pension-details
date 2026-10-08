@@ -24,7 +24,7 @@ router.post('/member-type', (req, res) => {
         res.redirect('access-to-esr');
     } else {
         //redirect to change your details route
-        res.redirect('change-address');
+        res.redirect('membership-number');
     }
     });
 
@@ -90,6 +90,36 @@ router.post('/enter-your-email', (req, res) => {
 //What is your phone number page
 router.post('/enter-your-phone-number', (req, res) => {
     res.redirect('enter-your-old-postcode')
+});
+
+//What is your old postcode page
+router.post('/enter-your-old-postcode', (req, res) => {
+    res.redirect('select-your-old-address')
+});
+
+//Enter your address manual not in the UK page
+router.post('/enter-in-your-address-not-uk', (req, res) => {
+    res.redirect('enter-your-new-postcode')
+});
+
+//Select your old address page
+router.post('/select-your-old-address', (req, res) => {
+    res.redirect('enter-your-new-postcode')
+});
+
+//What is your new postcode page
+router.post('/enter-your-new-postcode', (req, res) => {
+    res.redirect('select-your-new-address')
+});
+
+//Select your new address page
+router.post('/select-your-new-address', (req, res) => {
+    res.redirect('check-your-answers')
+});
+
+//Check your answers page
+router.post('/check-your-answers', (req, res) => {
+    res.redirect('confirmation')
 });
 
 module.exports = router

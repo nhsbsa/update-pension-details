@@ -1,0 +1,201 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <h1 class="nhsuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <p>Check your answers and make sure they are correct before you continue. If you need to, you can change your answers.</p>
+
+      <h2 class="nhsuk-heading-m">
+        Previous answers
+      </h2>
+
+      <dl class="nhsuk-summary-list">
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Status
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+              {% if data['memberType'] == 'active' %}
+                Active member
+              {% elif data['memberType'] == 'deferred' %}
+                Deferred member
+              {% elif data['memberType'] == 'pensioner' %}
+                Pensioner member
+              {% else %}
+                Not provided
+              {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="member-type">Change<span class="nhsuk-u-visually-hidden"> NHS number</span></a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Membership number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if data['membership-number'] %}
+             {{ data['membership-number'] }}
+             {% else %}
+             Not provided
+             {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="membership-number">Change<span class="nhsuk-u-visually-hidden"> name</span></a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if data['firstName'] and data['lastName'] %}
+           {{ data['firstName'] }} {{ data['lastName'] }}
+           {% else %}
+           Joe Bloggs
+           {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="enter-your-name">Change<span class="nhsuk-u-visually-hidden"> date of birth</span></a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            12 November 1958
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="enter-date-of-birth">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if data['email'] %}
+           {{ data['email'] }} 
+           {% else %}
+           Not provided
+           {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="enter-your-email">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+            {% if data['phone'] %}
+           {{ data['phone'] }} 
+           {% else %}
+           Not provided
+           {% endif %}
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="enter-your-phone-number">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            Previous address
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+           address here
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="#">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+          </dd>
+        </div>
+        <div class="nhsuk-summary-list__row">
+          <dt class="nhsuk-summary-list__key">
+            New address
+          </dt>
+          <dd class="nhsuk-summary-list__value">
+           address here
+          </dd>
+          <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" href="#">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <form method="post" action="/v1/check-your-answers">
+      <div class="nhsuk-checkboxes" data-module="nhsuk-checkboxes">
+        <div class="nhsuk-checkboxes__item">
+          <input class="nhsuk-checkboxes__input" id="example" name="example" type="checkbox" value="email">
+          <label class="nhsuk-label nhsuk-checkboxes__label" for="example">
+            By submitting this information I confirm that, to the best of my knowledge, the details I have provided are correct.
+          </label>
+        </div>
+
+          <button class="nhsuk-button nhsuk-u-margin-top-4" data-module="nhsuk-button" type="submit">
+            Continue
+          </button>
+        </form>
+        </div>
+        </div>
+      
+
+        
+
+
+
+  
+      
+     
+      
+
+      
+      
+      
+
+
+      
+
+      
+
+      
+
+     
+
+    </div>
+  </div>
+{% endblock %}

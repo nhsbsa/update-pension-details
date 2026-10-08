@@ -21,7 +21,8 @@
 
 <!-- For adding a breadcrumb or back link -->
 <!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
-
+{% block beforeContent %}
+{% endblock %}
 
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
@@ -32,34 +33,36 @@
       <!-- Add your content here -->
       <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
 
-      <form method="post" action="/v1/enter-your-name">
-      <div class="nhsuk-form-group">
-        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-          <h1 class="nhsuk-fieldset__heading">
-            What is your name?
-          </h1>
-        </legend>
-        <label class="nhsuk-label" for="input-width-20">
-          First name
-        </label>
-        <input class="nhsuk-input nhsuk-input--width-20" id="firstName" name="firstName" type="text">
+      <div class="nhsuk-panel">
+        <h1 class="nhsuk-panel__heading">
+          Application complete
+        </h1>
+        <div class="nhsuk-panel__body">
+          We have received your query
+        </div>
       </div>
+      
 
-      <div class="nhsuk-form-group">
-        <label class="nhsuk-label" for="input-width-20">
-          Last name
-        </label>
-        <input class="nhsuk-input nhsuk-input--width-20" id="lastName" name="lastName" type="text">
-      </div>
-     
+      <p>We have sent you a confirmation email to {{ data['email']}}.</p>
+
+      <h2>What happens next</h2>
+      <p>We will confirm your change of address request has been updated within 2 working days.</p>
+
+      <h2>Give feedback</h2>
+      <p><a href="" target="_blank">Tell us about your experience using this service (opens in new tab)</a>.</p>
+        </div>
+        </div>
+      
+
+        
+
+
+
+  
+      
      
       
 
-      
-      <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
-        Continue
-      </button>
-    </form>
       
       
       
