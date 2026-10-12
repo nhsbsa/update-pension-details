@@ -138,10 +138,22 @@
             Previous address
           </dt>
           <dd class="nhsuk-summary-list__value">
-           address here
+            {% if data['previousAddress'] == '1Test' %}
+            1 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['previousAddress'] == '14Test' %}
+            14 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['previousAddress'] == '15Test' %}
+            15 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['previousAddress'] == '16Test' %}
+            16 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['previousAddress'] == '22Test' %}
+            22A Test Street, Newcastle Upon Tyne, NE21 4AJ
+          {% else %}
+            Not provided
+          {% endif %}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="#">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+            <a class="nhsuk-link" href="select-your-old-address">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
           </dd>
         </div>
         <div class="nhsuk-summary-list__row">
@@ -149,10 +161,22 @@
             New address
           </dt>
           <dd class="nhsuk-summary-list__value">
-           address here
+            {% if data['newAddress'] == 'address-1' %}
+            1 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['newAddress'] == 'address-2' %}
+            14 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['newAddress'] == 'address-3' %}
+            15 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['newAddress'] == 'address-4' %}
+            16 Testing Street, Newcastle Upon Tyne, NE21 4AJ
+          {% elif data['newAddress'] == 'address-5' %}
+            22A Test Street, Newcastle Upon Tyne, NE21 4AJ
+          {% else %}
+            Not provided
+          {% endif %}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="#">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+            <a class="nhsuk-link" href="select-your-new-address">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
           </dd>
         </div>
       </dl>

@@ -104,7 +104,9 @@ router.post('/enter-in-your-address-not-uk', (req, res) => {
 
 //Select your old address page
 router.post('/select-your-old-address', (req, res) => {
-    res.redirect('enter-your-new-postcode')
+    req.session.data['previousAddress'] = req.body['previousAddress'];
+
+    res.redirect('enter-your-new-postcode');
 });
 
 //What is your new postcode page
@@ -114,6 +116,7 @@ router.post('/enter-your-new-postcode', (req, res) => {
 
 //Select your new address page
 router.post('/select-your-new-address', (req, res) => {
+    req.session.data['newAddress'] = req.body['newAddress'];
     res.redirect('check-your-answers')
 });
 
