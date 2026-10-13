@@ -1,0 +1,83 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layout.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!--
+  Use this to set the page name which will appear at the
+  start of the <title> tag, followed by the service name.
+  This is often not needed on the homepage, where only the
+  service name is needed. You can also reuse this variable
+  within the <h1>, where they are the same.
+-->
+{% set pageName = "" %}
+
+<!-- For adding a breadcrumb or back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/breadcrumbs and https://service-manual.nhs.uk/design-system/components/back-link -->
+
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <!-- Add your content here -->
+      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+
+      <form method="post" action="/v1/updating-your-address">
+      <div class="nhsuk-form-group">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
+          <h1 class="nhsuk-fieldset__heading">
+            Updating your home address
+          </h1>
+        </legend>
+        <p>To update your address on your NHS Pensions record you need to provide us with your:</p>
+        <ul>
+          <li>previous home's full address</li>
+          <li>new home's full address</li>
+        </ul>
+        <p>We'll start by asking for your previous address. This is the place you are moving away from.</p>
+        <details class="nhsuk-details">
+          <summary class="nhsuk-details__summary">
+            <span class="nhsuk-details__summary-text">
+              Address on my Total Reward Statement (TRS) is not right
+            </span>
+          </summary>
+          <div class="nhsuk-details__text">
+            <p>If your address does not look right on your TRS statement, this could be because it was changed after May (cut off) of this year? TRS Statements are updated once a year therefore your address may reflect an old address. Your new address will update on your next TRS statement.</p>
+        
+          </div>
+        </details>
+        
+      </div>
+
+
+      
+      <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+        Continue
+      </button>
+    </form>
+      
+      
+      
+
+
+      
+
+      
+
+      
+
+     
+
+    </div>
+  </div>
+{% endblock %}

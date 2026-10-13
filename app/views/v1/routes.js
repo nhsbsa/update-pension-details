@@ -87,14 +87,33 @@ router.post('/enter-your-email', (req, res) => {
     res.redirect('enter-your-phone-number')
 });
 
-//What is your phone number page
-router.post('/enter-your-phone-number', (req, res) => {
+//Updating your address content page
+router.post('/updating-your-address', (req, res) => {
     res.redirect('enter-your-old-postcode')
 });
 
-//What is your old postcode page
+//What is your phone number page
+router.post('/enter-your-phone-number', (req, res) => {
+    res.redirect('updating-your-address')
+});
+
+// What is your old postcode page
 router.post('/enter-your-old-postcode', (req, res) => {
-    res.redirect('select-your-old-address')
+    const postcode = req.body['oldPostcode'];
+
+    // Check whether the postcode matches a basic UK postcode format
+    const postcodeRegex = /^[A-Z]{1,2}\d[A-Z\d]?\s*\d[A-Z]{2}$/i;
+
+    if (!postcode || !postcodeRegex.test(postcode.trim())) {
+        return res.redirect('no-address-found');
+    }
+
+    res.redirect('select-your-old-address');
+});
+
+//No address found page
+router.post('/no-address-found', (req, res) => {
+    res.redirect('enter-your-old-postcode')
 });
 
 //Enter your address manual not in the UK page
