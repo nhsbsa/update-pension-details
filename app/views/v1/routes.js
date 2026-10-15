@@ -55,26 +55,33 @@ router.post('/are-you-a-dental-practitioner', (req, res) => {
     });
 
      // Do you know your membership number page
-router.post('/membership-number', (req, res) => {
-    const selection = req.session.data['membership-number-known'];
-
-    if (selection === 'yes') {
-        // Redirect to name page
-        res.redirect('enter-your-name');
-    } else {
-        // Redirect to national insurance number page
-        res.redirect('enter-national-insurance-number');
-    }
-});
+     router.post('/membership-number', (req, res) => {
+        req.session.data['membership-number-known'] =
+            req.body['membership-number-known'];
+    
+        if (req.body['membership-number-known'] === 'yes') {
+            req.session.data['membership-number'] =
+                req.body['membership-number'];
+    
+            res.redirect('enter-your-name');
+        } else {
+            res.redirect('enter-national-insurance-number');
+        }
+    });
 
 //What is your name page
 router.post('/enter-your-name', (req, res) => {
     res.redirect('enter-date-of-birth')
 });
 
-//What is your national insurance number page
-router.post('/enter-national-insurance-number', (req, res) => {
-    res.redirect('enter-your-name')
+ // What is your national insurance number page
+ router.post('/enter-national-insurance-number', (req, res) => {
+
+    req.session.data['national-insurance-number'] =
+        req.body['national-insurance-number'];
+
+    res.redirect('enter-your-name');
+
 });
 
 //What is your date of birth page

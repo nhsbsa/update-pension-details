@@ -63,21 +63,46 @@
             <a class="nhsuk-link" href="member-type">Change<span class="nhsuk-u-visually-hidden"> NHS number</span></a>
           </dd>
         </div>
-        <div class="nhsuk-summary-list__row">
-          <dt class="nhsuk-summary-list__key">
-            Membership number
-          </dt>
-          <dd class="nhsuk-summary-list__value">
-            {% if data['membership-number'] %}
-             {{ data['membership-number'] }}
-             {% else %}
-             Not provided
-             {% endif %}
-          </dd>
-          <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="membership-number">Change<span class="nhsuk-u-visually-hidden"> name</span></a>
-          </dd>
-        </div>
+        {% if data['membership-number-known'] == 'yes' %}
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Membership number
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {% if data['membership-number'] %}
+        {{ data['membership-number'] }}
+      {% else %}
+        Not provided
+      {% endif %}
+    </dd>
+    <dd class="nhsuk-summary-list__actions">
+      <a class="nhsuk-link" href="membership-number">
+        Change<span class="nhsuk-u-visually-hidden"> membership number</span>
+      </a>
+    </dd>
+  </div>
+{% endif %}
+
+{% if data['membership-number-known'] == 'no' or data['membership-number-known'] == 'unsure' %}
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      National Insurance number
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      {% if data['national-insurance-number'] %}
+        {{ data['national-insurance-number'] }}
+      {% else %}
+        Not provided
+      {% endif %}
+    </dd>
+    <dd class="nhsuk-summary-list__actions">
+      <a class="nhsuk-link" href="enter-national-insurance-number">
+        Change<span class="nhsuk-u-visually-hidden"> National Insurance number</span>
+      </a>
+    </dd>
+  </div>
+{% endif %}
+
         <div class="nhsuk-summary-list__row">
           <dt class="nhsuk-summary-list__key">
             Name
