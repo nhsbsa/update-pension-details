@@ -123,13 +123,28 @@ router.post('/no-address-found', (req, res) => {
     res.redirect('enter-your-old-postcode')
 });
 
-//Enter your address manual not in the UK page
-router.post('/enter-in-your-address-not-uk', (req, res) => {
+//Enter your previous address manual not in the UK page
+router.post('/enter-in-previous-address-not-uk', (req, res) => {
     res.redirect('enter-your-new-postcode')
+});
+
+//Enter your previous address manual UK page
+router.post('/enter-in-previous-address-uk', (req, res) => {
+    req.session.data['previousAddressEntryMethod'] = 'manual';
+
+    req.session.data['previousAddressLine1'] = req.body['previousAddressLine1'];
+    req.session.data['previousAddressLine2'] = req.body['previousAddressLine2'];
+    req.session.data['previousAddressTown'] = req.body['previousAddressTown'];
+    req.session.data['previousAddressCounty'] = req.body['previousAddressCounty'];
+    req.session.data['previousAddressCountry'] = req.body['previousAddressCountry'];
+    req.session.data['previousAddressPostcode'] = req.body['previousAddressPostcode'];
+
+    res.redirect('enter-your-new-postcode');
 });
 
 //Select your old address page
 router.post('/select-your-old-address', (req, res) => {
+    req.session.data['previousAddressEntryMethod'] = 'selected';
     req.session.data['previousAddress'] = req.body['previousAddress'];
 
     res.redirect('enter-your-new-postcode');
@@ -140,10 +155,28 @@ router.post('/enter-your-new-postcode', (req, res) => {
     res.redirect('select-your-new-address')
 });
 
-//Select your new address page
+// Select your new address page
 router.post('/select-your-new-address', (req, res) => {
     req.session.data['newAddress'] = req.body['newAddress'];
-    res.redirect('check-your-answers')
+
+    // Make sure the selected address is displayed instead of manual entry
+    req.session.data['newAddressEntryMethod'] = 'selected';
+
+    res.redirect('/v1/check-your-answers');
+});
+
+//Enter your new address manual UK page
+router.post('/enter-in-new-address-uk', (req, res) => {
+    req.session.data['newAddressEntryMethod'] = 'manualNew';
+
+    req.session.data['newAddressLine1'] = req.body['newAddressLine1'];
+    req.session.data['newAddressLine2'] = req.body['newAddressLine2'];
+    req.session.data['newAddressTown'] = req.body['newAddressTown'];
+    req.session.data['newAddressCounty'] = req.body['newAddressCounty'];
+    req.session.data['newAddressCountry'] = req.body['newAddressCountry'];
+    req.session.data['newAddressPostcode'] = req.body['newAddressPostcode'];
+
+    res.redirect('check-your-answers');
 });
 
 //Check your answers page

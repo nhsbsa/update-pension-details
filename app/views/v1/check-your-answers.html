@@ -164,22 +164,61 @@
             Previous address
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {% if data['previousAddress'] == '1Test' %}
-            1 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['previousAddress'] == '14Test' %}
-            14 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['previousAddress'] == '15Test' %}
-            15 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['previousAddress'] == '16Test' %}
-            16 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['previousAddress'] == '22Test' %}
-            22A Test Street, Newcastle Upon Tyne, NE21 4AJ
-          {% else %}
-            Not provided
-          {% endif %}
+            {% if data['previousAddressEntryMethod'] == 'manual' %}
+        
+              {% if data['previousAddressLine1'] %}
+                {{ data['previousAddressLine1'] }}<br>
+              {% endif %}
+        
+              {% if data['previousAddressLine2'] %}
+                {{ data['previousAddressLine2'] }}<br>
+              {% endif %}
+        
+              {% if data['previousAddressTown'] %}
+                {{ data['previousAddressTown'] }}<br>
+              {% endif %}
+        
+              {% if data['previousAddressCounty'] %}
+                {{ data['previousAddressCounty'] }}<br>
+              {% endif %}
+        
+              {% if data['previousAddressCountry'] %}
+                {{ data['previousAddressCountry'] }}<br>
+              {% endif %}
+        
+              {% if data['previousAddressPostcode'] %}
+                {{ data['previousAddressPostcode'] }}
+              {% endif %}
+        
+            {% elif data['previousAddress'] == '1Test' %}
+              1 Testing Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['previousAddress'] == '14Test' %}
+              14 Testing Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['previousAddress'] == '15Test' %}
+              15 Testing Street<br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['previousAddress'] == '16Test' %}
+              16 Testing Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['previousAddress'] == '22Test' %}
+              22A Test Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% else %}
+              Not provided
+            {% endif %}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="select-your-old-address">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+            {% if data['previousAddressEntryMethod'] == 'manual' %}
+              <a class="nhsuk-link" href="enter-in-your-address-uk">
+                Change<span class="nhsuk-u-visually-hidden"> previous address</span>
+              </a>
+            {% else %}
+              <a class="nhsuk-link" href="select-your-old-address">
+                Change<span class="nhsuk-u-visually-hidden"> previous address</span>
+              </a>
+            {% endif %}
           </dd>
         </div>
         <div class="nhsuk-summary-list__row">
@@ -187,19 +226,50 @@
             New address
           </dt>
           <dd class="nhsuk-summary-list__value">
-            {% if data['newAddress'] == 'address-1' %}
-            1 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['newAddress'] == 'address-2' %}
-            14 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['newAddress'] == 'address-3' %}
-            15 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['newAddress'] == 'address-4' %}
-            16 Testing Street, Newcastle Upon Tyne, NE21 4AJ
-          {% elif data['newAddress'] == 'address-5' %}
-            22A Test Street, Newcastle Upon Tyne, NE21 4AJ
-          {% else %}
-            Not provided
-          {% endif %}
+            {% if data['newAddressEntryMethod'] == 'manualNew' %}
+        
+              {% if data['newAddressLine1'] %}
+                {{ data['newAddressLine1'] }}<br>
+              {% endif %}
+        
+              {% if data['newAddressLine2'] %}
+                {{ data['newAddressLine2'] }}<br>
+              {% endif %}
+        
+              {% if data['newAddressTown'] %}
+                {{ data['newAddressTown'] }}<br>
+              {% endif %}
+        
+              {% if data['newAddressCounty'] %}
+                {{ data['newAddressCounty'] }}<br>
+              {% endif %}
+        
+              {% if data['newAddressCountry'] %}
+                {{ data['newAddressCountry'] }}<br>
+              {% endif %}
+        
+              {% if data['newAddressPostcode'] %}
+                {{ data['newAddressPostcode'] }}
+              {% endif %}
+        
+            {% elif data['newAddress'] == 'address-1' %}
+              1 Testing Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['newAddress'] == 'address-2' %}
+              14 Testing Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['newAddress'] == 'address-3' %}
+              15 Testing Street<br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['newAddress'] == 'address-4' %}
+              16 Testing Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% elif data['newAddress'] == 'address-5' %}
+              22A Test Street <br> Newcastle Upon Tyne <br> NE21 4AJ
+        
+            {% else %}
+              Not provided
+            {% endif %}
           </dd>
           <dd class="nhsuk-summary-list__actions">
             <a class="nhsuk-link" href="select-your-new-address">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
