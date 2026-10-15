@@ -211,7 +211,7 @@
           </dd>
           <dd class="nhsuk-summary-list__actions">
             {% if data['previousAddressEntryMethod'] == 'manual' %}
-              <a class="nhsuk-link" href="enter-in-your-address-uk">
+              <a class="nhsuk-link" href="enter-in-previous-address-uk">
                 Change<span class="nhsuk-u-visually-hidden"> previous address</span>
               </a>
             {% else %}
@@ -272,7 +272,15 @@
             {% endif %}
           </dd>
           <dd class="nhsuk-summary-list__actions">
-            <a class="nhsuk-link" href="select-your-new-address">Change<span class="nhsuk-u-visually-hidden"> home address</span></a>
+            {% if data['newAddressEntryMethod'] == 'manualNew' %}
+              <a class="nhsuk-link" href="enter-in-new-address-uk">
+                Change<span class="nhsuk-u-visually-hidden"> previous address</span>
+              </a>
+            {% else %}
+              <a class="nhsuk-link" href="select-your-new-address">
+                Change<span class="nhsuk-u-visually-hidden"> previous address</span>
+              </a>
+            {% endif %}
           </dd>
         </div>
       </dl>
